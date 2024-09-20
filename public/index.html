@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Editor</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        #main-content {
+            flex-grow: 1;
+            padding: 20px;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+        }
+        .requirement-link {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+        .requirement-link:hover {
+            color: darkblue;
+        }
+        #sub-requirements {
+            margin-top: 20px;
+        }
+        .sub-requirement {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Requirements</h2>
+        <div id="requirement-list"></div>
+    </div>
+    <div id="main-content">
+        <h1>Requirement Editor</h1>
+        <form id="requirement-form">
+            <div class="form-group">
+                <label for="requirement">Requirement:</label>
+                <input type="text" id="requirement" name="requirement">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="applicability">Applicability:</label>
+                <input type="text" id="applicability" name="applicability">
+            </div>
+            <div id="sub-requirements"></div>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+
+    <script>
+        const requirementList = document.getElementById('requirement-list');
+        const requirementForm = document.getElementById('requirement-form');
+        const subRequirements = document.getElementById('sub-requirements');
+        let currentCategory, currentIndex;
+
+        function createSubRequirementHTML(subReq, index) {
+            return `
+                <div class="sub-requirement">
+                    <h3>Sub-requirement ${index + 1}</h3>
+                    <div class="form-group">
+                        <label for="sub-name-${index}">Name:</label>
+                        <input type="text" id="sub-name-${index}" name="sub-name-${index}" value="${subReq.name}">
+                    </div>
+                    <div class="form-group">
+                        <label for="sub-description-${index}">Description:</label>
+                        <textarea id="sub-description-${index}" name="sub-description-${index}">${subReq.description}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="sub-details-${index}">Details:</label>
+                        <textarea id="sub-details-${index}" name="sub-details-${index}">${subReq.details.join('\n')}</textarea>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadRequirement(category, index) {
+            currentCategory = category;
+            currentIndex = index;
+            fetch(`/api/requirements/${category}/${index}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('requirement').value = data.requirement;
+                    document.getElementById('description').value = data.description;
+                    document.getElementById('applicability').value = data.applicability.join(', ');
+
+                    subRequirements.innerHTML = data.subRequirements.map(createSubRequirementHTML).join('');
+                });
+        }
+
+        // Fetch JSON data
+        fetch('/api/requirements')
+            .then(response => response.json())
+            .then(data => {
+                // Populate sidebar
+                const categories = ['highRiskSystems', 'limitedRiskSystems', 'minimalRiskSystems', 'prohibitedPractices'];
+                categories.forEach(category => {
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.innerHTML = `<h3>${category}</h3>`;
+                    const subList = document.createElement('ul');
+                    data.euAiActRequirements[category].forEach((item, index) => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `<span class="requirement-link" data-category="${category}" data-index="${index}">${item.requirement}</span>`;
+                        subList.appendChild(listItem);
+                    });
+                    categoryDiv.appendChild(subList);
+                    requirementList.appendChild(categoryDiv);
+                });
+
+                // Add click event listeners to requirement links
+                document.querySelectorAll('.requirement-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        const category = e.target.dataset.category;
+                        const index = e.target.dataset.index;
+                        loadRequirement(category, index);
+                    });
+                });
+
+                // Load the first requirement by default
+                loadRequirement('highRiskSystems', 0);
+            });
+
+        // Handle form submission
+        requirementForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const updatedData = {
+                requirement: document.getElementById('requirement').value,
+                description: document.getElementById('description').value,
+                applicability: document.getElementById('applicability').value.split(',').map(item => item.trim()),
+                subRequirements: Array.from(document.querySelectorAll('.sub-requirement')).map((subReq, index) => ({
+                    name: document.getElementById(`sub-name-${index}`).value,
+                    description: document.getElementById(`sub-description-${index}`).value,
+                    details: document.getElementById(`sub-details-${index}`).value.split('\n')
+                }))
+            };
+
+            fetch(`/api/save/${currentCategory}/${currentIndex}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('An error occurred while saving the data.');
+            });
+        });
+    </script>
+</body>
+</html>
