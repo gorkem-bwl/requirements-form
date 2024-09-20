@@ -1,0 +1,443 @@
+
+{
+  "euAiActRequirements": {
+    "highRiskSystems": [
+      {
+        "requirement": "Risk Management System",
+        "description": "A comprehensive system to identify, analyze, and mitigate risks associated with the AI system throughout its lifecycle.",
+        "applicability": ["high_risk"],
+        "subRequirements": [
+          {
+            "name": "Risk Identification and Analysis",
+            "description": "The process of recognizing and examining potential risks that the AI system may pose or encounter.",
+            "details": [
+              "Identify known risks associated with the AI system",
+              "Analyze foreseeable risks that may arise during operation",
+              "Consider risks to health, safety, and fundamental rights"
+            ]
+          },
+          {
+            "name": "Risk Estimation and Evaluation",
+            "description": "Assessing the likelihood and potential impact of identified risks to prioritize mitigation efforts.",
+            "details": [
+              "Estimate the likelihood of identified risks occurring",
+              "Evaluate the potential impact of risks",
+              "Prioritize risks based on severity and probability"
+            ]
+          },
+          {
+            "name": "Risk Management Measures",
+            "description": "Developing and implementing strategies to address and mitigate identified risks effectively.",
+            "details": [
+              "Develop strategies to mitigate identified risks",
+              "Implement risk control measures",
+              "Regularly review and update risk management strategies"
+            ]
+          },
+          {
+            "name": "Testing and Validation",
+            "description": "Conducting thorough testing to ensure the effectiveness of risk management measures.",
+            "details": [
+              "Conduct thorough testing of risk control measures",
+              "Validate the effectiveness of implemented risk management strategies",
+              "Document testing procedures and results"
+            ]
+          },
+          {
+            "name": "Residual Risk Communication",
+            "description": "Informing users about any remaining risks that cannot be fully mitigated.",
+            "details": [
+              "Identify residual risks that cannot be fully mitigated",
+              "Prepare clear information about residual risks for users",
+              "Develop guidelines for safe use considering residual risks"
+            ]
+          }
+        ]
+      },
+      {
+        "requirement": "Data and Data Governance",
+        "description": "Ensuring the quality, relevance, and appropriateness of data used in the AI system, along with proper data management practices.",
+        "applicability": ["high_risk"],
+        "subRequirements": [
+          {
+            "name": "Data Quality Assurance",
+            "description": "Implementing processes to ensure the data used meets high standards of quality and reliability.",
+            "details": [
+              "Establish criteria for high-quality training data",
+              "Implement processes for data validation",
+              "Ensure testing data meets quality standards"
+            ]
+          },
+          {
+            "name": "Data Relevance and Representation",
+            "description": "Ensuring that the data used is appropriate for the AI system's purpose and represents the target population or use case.",
+            "details": [
+              "Assess data relevance to the intended purpose of the AI system",
+              "Ensure data is representative of the target population or use case",
+              "Address potential gaps in data representation"
+            ]
+          },
+          {
+            "name": "Error Detection and Correction",
+            "description": "Implementing mechanisms to identify and address errors in datasets used by the AI system.",
+            "details": [
+              "Implement mechanisms to detect errors in datasets",
+              "Develop procedures for correcting identified errors",
+              "Regularly audit datasets for accuracy"
+            ]
+          },
+          {
+            "name": "Bias Examination",
+            "description": "Analyzing and addressing potential biases in the data to ensure fair and unbiased AI system performance.",
+            "details": [
+              "Develop methodologies to identify potential biases in data",
+              "Analyze data for demographic or other systematic biases",
+              "Implement strategies to mitigate identified biases"
+            ]
+          },
+          {
+            "name": "Data Source Assessment",
+            "description": "Evaluating the reliability and suitability of data sources used in the AI system.",
+            "details": [
+              "Identify and document all data sources used",
+              "Evaluate the reliability and credibility of data sources",
+              "Assess the suitability of data sources for the intended AI application"
+            ]
+          }
+        ]},
+    {
+      "requirement": "Technical Documentation",
+      "description": "Comprehensive documentation of the AI system's design, development, and functionality to ensure transparency and facilitate oversight.",
+      "applicability": ["high_risk"],
+      "subRequirements": [
+        {
+          "name": "System Description",
+          "description": "Providing a clear and detailed explanation of the AI system's components and overall architecture.",
+          "details": [
+            "Provide a general description of the AI system",
+            "Detail the system's components and their interactions",
+            "Explain the system's architecture and design principles"
+          ]
+        },
+        {
+          "name": "Development Process Documentation",
+          "description": "Recording the methodology and key decisions made during the AI system's development.",
+          "details": [
+            "Outline the AI system's development methodology",
+            "Document key milestones and decision points in development",
+            "Describe any iterative processes or version controls used"
+          ]
+        },
+        {
+          "name": "Input Data Specifications",
+          "description": "Defining the requirements and characteristics of data inputs for the AI system.",
+          "details": [
+            "Define the format and type of input data required",
+            "Specify any preprocessing steps for input data",
+            "Document acceptable ranges or constraints for input data"
+          ]
+        },
+        {
+          "name": "Design Choices and Assumptions",
+          "description": "Explaining and justifying key decisions made in the AI system's design and underlying assumptions.",
+          "details": [
+            "Explain key algorithmic choices made during development",
+            "Document underlying assumptions of the AI model",
+            "Justify design decisions based on intended use and risk assessment"
+          ]
+        },
+        {
+          "name": "Validation and Testing Procedures",
+          "description": "Detailing the methods used to validate the AI system's performance and accuracy.",
+          "details": [
+            "Describe the methodology used for system validation",
+            "Detail testing procedures for accuracy and performance",
+            "Document any benchmark tests or comparative evaluations conducted"
+          ]
+        }
+      ]
+    },
+    {
+      "requirement": "Record-Keeping",
+      "description": "Maintaining comprehensive records of the AI system's operations, decisions, and performance to ensure accountability and facilitate auditing.",
+      "applicability": ["high_risk"],
+      "subRequirements": [
+        {
+          "name": "System Activity Logging",
+          "description": "Recording detailed logs of the AI system's operations and decisions.",
+          "details": [
+            "Implement comprehensive logging of system operations",
+            "Record key decisions made by the AI system",
+            "Log user interactions and system responses"
+          ]
+        },
+        {
+          "name": "Traceability Mechanisms",
+          "description": "Implementing methods to trace and understand the AI system's decision-making processes.",
+          "details": [
+            "Develop methods to trace the system's decision-making process",
+            "Implement version control for AI models and data",
+            "Maintain records of system updates and changes"
+          ]
+        },
+        {
+          "name": "Risk Monitoring",
+          "description": "Continuously tracking and recording potential risks and mitigation actions related to the AI system.",
+          "details": [
+            "Establish processes for continuous risk monitoring",
+            "Log identified risks and mitigation actions taken",
+            "Implement alerts for potential risk events"
+          ]
+        },
+        {
+          "name": "Audit Facilitation",
+          "description": "Organizing and maintaining records in a way that supports effective auditing of the AI system.",
+          "details": [
+            "Organize records in a manner conducive to auditing",
+            "Develop tools or interfaces for easy access to logged data",
+            "Ensure compliance with data retention policies and regulations"
+          ]
+        }
+      ]
+    },
+    {
+      "requirement": "Transparency",
+      "description": "Ensuring clear communication about the AI system's capabilities, limitations, and use to users and affected parties.",
+      "applicability": ["high_risk"],
+      "subRequirements": [
+        {
+          "name": "User Information Provision",
+          "description": "Providing comprehensive and accessible information to users about the AI system.",
+          "details": [
+            "Develop clear and comprehensive user manuals",
+            "Provide easily accessible information about the AI system's purpose",
+            "Offer guidance on interpreting system outputs"
+          ]
+        },
+        {
+          "name": "System Capabilities and Limitations",
+          "description": "Clearly communicating what the AI system can and cannot do, including its performance boundaries.",
+          "details": [
+            "Clearly communicate what the AI system can and cannot do",
+            "Provide information on the system's accuracy and performance metrics",
+            "Highlight known limitations or potential failure modes"
+          ]
+        },
+        {
+          "name": "Intended Purpose and Use Conditions",
+          "description": "Specifying the intended use of the AI system and the conditions under which it should be operated.",
+          "details": [
+            "Clearly state the intended purpose of the AI system",
+            "Specify the conditions under which the system should be used",
+            "Provide guidelines for appropriate use and potential misuse"
+          ]
+        }
+      ]
+    },
+    {
+      "requirement": "Human Oversight",
+      "description": "Ensuring effective human supervision and control over the AI system's operations and decisions.",
+      "applicability": ["high_risk"],
+      "subRequirements": [
+        {
+          "name": "Human-Machine Interface",
+          "description": "Designing interfaces that allow for effective human oversight and control of the AI system.",
+          "details": [
+            "Design intuitive interfaces for human overseers",
+            "Implement controls for human intervention in AI processes",
+            "Develop dashboards for monitoring AI system performance"
+          ]
+        },
+        {
+          "name": "Oversight Capability Building",
+          "description": "Developing the skills and knowledge necessary for effective human oversight of the AI system.",
+          "details": [
+            "Develop training programs for human overseers",
+            "Create documentation explaining AI system functionality",
+            "Implement regular briefings on system updates and changes"
+          ]
+        },
+        {
+          "name": "Real-time Monitoring and Intervention",
+          "description": "Implementing mechanisms for real-time human monitoring and intervention in the AI system's operations.",
+          "details": [
+            "Implement real-time monitoring tools for human overseers",
+            "Develop mechanisms for immediate human intervention",
+            "Create alert systems for critical AI decisions or anomalies"
+          ]
+        },
+        {
+          "name": "System Deactivation",
+          "description": "Providing means to safely stop or deactivate the AI system when necessary.",
+          "details": [
+            "Implement emergency stop or deactivation procedures",
+            "Develop protocols for safe system shutdown",
+            "Create guidelines for determining when deactivation is necessary"
+          ]
+        }
+      ]
+    },
+    {
+      "requirement": "Accuracy, Robustness, and Cybersecurity",
+      "description": "Ensuring the AI system performs accurately, remains stable under various conditions, and is protected against security threats.",
+      "applicability": ["high_risk"],
+      "subRequirements": [
+        {
+          "name": "Accuracy Assurance",
+          "description": "Implementing measures to ensure and maintain the AI system's accuracy in its intended use.",
+          "details": [
+            "Define accuracy metrics relevant to the system's purpose",
+            "Implement regular accuracy testing and validation",
+            "Develop processes for continuous accuracy improvement"
+          ]
+        },
+        {
+          "name": "Error Resilience",
+          "description": "Ensuring the AI system can handle errors and unexpected inputs gracefully.",
+          "details": [
+            "Implement error handling and fallback mechanisms",
+            "Conduct stress testing to identify potential failure points",
+            "Develop strategies for graceful degradation under suboptimal conditions"
+          ]
+        },
+        {
+          "name": "Cybersecurity Measures",
+          "description": "Implementing robust security measures to protect the AI system from unauthorized access and cyber threats.",
+          "details": [
+            "Implement robust authentication and access control",
+            "Develop encryption protocols for data protection",
+            "Conduct regular security audits and penetration testing"
+          ]
+        },
+        {
+          "name": "Consistent Performance",
+          "description": "Ensuring the AI system performs consistently across different user groups and conditions.",
+          "details": [
+            "Test system performance across diverse user groups",
+            "Implement measures to ensure fairness and non-discrimination",
+            "Develop monitoring tools for performance consistency"
+          ]
+        }
+      ]
+    }
+  ],
+  "limitedRiskSystems": [
+    {
+      "requirement": "Transparency for Limited Risk Systems",
+      "description": "Ensuring users are aware of their interaction with AI systems and the nature of AI-generated content.",
+      "applicability": ["limited_risk"],
+      "subRequirements": [
+        {
+          "name": "AI Interaction Notification",
+          "description": "Informing users when they are interacting with an AI system.",
+          "details": [
+            "Develop clear indicators of AI system involvement",
+            "Implement user-friendly notifications about AI interaction",
+            "Provide easily accessible information about the AI system's role"
+          ]
+        },
+        {
+          "name": "AI-Generated Content Disclosure",
+          "description": "Clearly identifying content that has been created or manipulated by AI systems.",
+          "details": [
+            "Implement labeling systems for AI-generated content",
+            "Develop clear communication about the extent of AI involvement in content creation",
+            "Provide mechanisms for users to distinguish between AI and human-generated content"
+          ]
+        },
+        {
+          "name": "Deep Fake Labeling",
+          "description": "Identifying and labeling artificially generated or manipulated media, particularly deep fakes.",
+          "details": [
+            "Implement robust detection systems for deep fakes and synthetic media",
+            "Develop clear and conspicuous labeling for identified deep fakes",
+            "Provide educational resources about the nature and potential impacts of deep fakes"
+          ]
+        }
+      ]
+    }
+  ],
+  "minimalRiskSystems": [
+    {
+      "requirement": "Voluntary Codes of Conduct",
+      "description": "Encouraging the development and adoption of voluntary guidelines for responsible AI development and use.",
+      "applicability": ["low_risk"],
+      "subRequirements": [
+        {
+          "name": "Code Development",
+          "description": "Creating voluntary guidelines for responsible AI development and use.",
+          "details": [
+            "Establish processes for creating voluntary codes of conduct",
+            "Engage with industry stakeholders to develop comprehensive guidelines",
+            "Regularly review and update codes to reflect evolving AI practices"
+          ]
+        },
+        {
+          "name": "Responsible AI Promotion",
+          "description": "Promoting ethical and responsible practices in AI development and deployment.",
+          "details": [
+            "Develop educational materials on responsible AI development",
+            "Implement training programs on ethical AI practices",
+            "Create incentives for adhering to responsible AI principles"
+          ]
+        },
+        {
+          "name": "Voluntary Transparency Measures",
+          "description": "Encouraging voluntary disclosure and explanation of AI use in low-risk applications.",
+          "details": [
+            "Develop guidelines for voluntary disclosure of AI use",
+            "Create templates for communicating AI system capabilities and limitations",
+            "Establish best practices for explaining AI decision-making processes"
+          ]
+        }
+      ]
+    }
+  ],
+  "prohibitedPractices": [
+    {
+      "requirement": "Compliance with Prohibited AI Practices",
+      "description": "Ensuring AI systems do not engage in practices that are considered unacceptable risks under the EU AI Act.",
+      "applicability": ["high_risk", "limited_risk", "low_risk"],
+      "subRequirements": [
+        {
+          "name": "Subliminal Manipulation Prevention",
+          "description": "Prohibiting AI systems that deploy subliminal techniques beyond a person's consciousness.",
+          "details": [
+            "Implement safeguards against subliminal techniques",
+            "Develop guidelines for ethical persuasion in AI systems",
+            "Establish review processes to identify potential manipulative features"
+          ]
+        },
+        {
+          "name": "Vulnerability Exploitation Prevention",
+          "description": "Prohibiting AI systems that exploit vulnerabilities of specific groups of persons.",
+          "details": [
+            "Develop policies against targeting vulnerable groups",
+            "Implement ethical guidelines for AI interaction with minors and elderly",
+            "Establish review processes for AI applications involving sensitive populations"
+          ]
+        },
+        {
+          "name": "Social Scoring Prohibition",
+          "description": "Prohibiting AI systems for general purpose social scoring by public authorities.",
+          "details": [
+            "Implement safeguards against general-purpose social scoring",
+            "Develop clear guidelines on acceptable and unacceptable uses of personal data",
+            "Establish processes to prevent mission creep in AI applications"
+          ]
+        },
+        {
+          "name": "Biometric Identification Restrictions",
+          "description": "Restricting the use of 'real-time' remote biometric identification systems in publicly accessible spaces for law enforcement purposes.",
+          "details": [
+            "Implement strict controls on real-time biometric identification",
+            "Develop clear guidelines for exceptions in law enforcement use",
+            "Establish robust oversight mechanisms for any permitted use of biometric identification"
+          ]
+        }
+      ]
+    }
+  ]
+}
+}
+
